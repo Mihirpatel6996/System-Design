@@ -107,3 +107,6 @@ Encapsulation is not about “private variables”
 ---
 
 Next step: **Abstraction** (builds on this)
+
+
+

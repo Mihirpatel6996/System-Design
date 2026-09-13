@@ -4,7 +4,7 @@ class BankAccount:
 
     def deposit(self, amount):
         if amount > 0:
-            self.__balance += amount
+            self.__balance += amount # this Self.__balance is actually self._BankAccount__balance but we can use self.__balance to access it -- Name Mangling
 
     def withdraw(self, amount):
         if amount > self.__balance:
