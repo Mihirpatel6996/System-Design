@@ -1,0 +1,56 @@
+from abc import ABC, abstractmethod
+
+
+## parent class which is abstract and defines the methods that must be implemented by the child classes
+class PerformanceTest(ABC):
+
+    @abstractmethod
+    def start(self):
+        pass
+
+    @abstractmethod
+    def stop(self):
+        pass
+
+    # Code reuse via inheritance -- Now suppose every test needs logging.
+    @abstractmethod
+    def log(self, msg):
+        print(f"[LOG]: {msg}")
+
+    @abstractmethod # @super () example -- used if a If parent has useful logic:
+    def get_results(self):
+        pass
+
+    
+
+
+# chid classes which implement the abstract methods defined in the parent class
+class LoadRunnerTest(PerformanceTest):
+
+    def start(self):
+        print("LoadRunner starting")
+        self.log("Starting LoadRunner")
+
+    def stop(self):
+        self.log("Stopping LoadRunner")
+        print("LoadRunner stopping")
+
+    # method Overiding -- we can override the log method defined in the parent class to provide a custom implementation for the child class
+    def log(self, msg):
+        print(f"[LoadRunner LOG]: {msg}")
+
+    # super() Usage 
+    def get_results(self):
+        super().get_results()  # calling the parent class method
+        
+    
+
+
+
+    
+
+        
+
+
+
+
