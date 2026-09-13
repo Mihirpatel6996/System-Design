@@ -1,0 +1,58 @@
+from abc import ABC, abstractmethod
+from email.mime import base
+
+class Notification(ABC):
+    
+    @abstractmethod
+    def send(self, message):
+        pass
+
+    def log(self, message):
+        print(f"[LOG]: {message}")
+
+class EmailNotification(Notification):
+    def send(self, message):
+        self.log(f"Sending email: {message}")
+        self.log(f"Email sent: {message}") # Reuse the log method from the parent class
+        print(f"Email sent: {message}")
+
+
+class SMSNotification(Notification):
+    def send(self, message):
+        self.log(f"Sending SMS: {message}")
+        self.log(f"SMS sent: {message}")  # Reuse the log method from the parent class
+        print(f"SMS sent: {message}")
+
+
+class PushNotification(Notification):
+    def send(self, message):
+        self.log(f"Sending push notification: {message}")
+        self.log(f"Push notification sent: {message}")  # Reuse the log method from the parent class
+        print(f"Push notification sent: {message}")
+
+
+
+
+## Without polymorphism
+
+user_type = "email"
+
+def notify(user_type, message):
+    if user_type == "email":
+        EmailNotification().send(message)
+    elif user_type == "sms":
+        SMSNotification().send(message)
+    elif user_type == "push":
+        PushNotification().send(message)
+
+## with polymorphism
+
+def notify(notification: Notification, message):
+    notification.send(message)
+
+notification_type = EmailNotification()  # This can be changed to SMSNotification() or PushNotification()
+notification_type.send("Hello, this is a test notification!")
+
+
+
+
