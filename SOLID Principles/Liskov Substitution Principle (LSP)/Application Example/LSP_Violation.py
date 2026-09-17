@@ -1,7 +1,10 @@
+from abc import ABC, abstractmethod
 
-class Notification:
+
+class Notification(ABC):
+    @abstractmethod
     def send(self, message):
-        raise NotImplementedError
+        pass
 
 
 class EmailNotification(Notification):
