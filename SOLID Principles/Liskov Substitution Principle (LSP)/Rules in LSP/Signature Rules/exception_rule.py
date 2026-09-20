@@ -2,10 +2,10 @@
 
 # when a caller writes 
 
-try:
-    service.do_something()
-except SomeExpectedError:
-    handle()
+# try:
+#     service.do_something()
+# except SomeExpectedError:
+#     handle()
 
 '''
 The caller is making an assumption:
