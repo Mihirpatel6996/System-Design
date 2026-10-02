@@ -1,0 +1,4 @@
+1. plug adn play model
+2. extendible : sms, email, popup notifications
+3. Change notifications dynamically
+4. store all notifications / logging
